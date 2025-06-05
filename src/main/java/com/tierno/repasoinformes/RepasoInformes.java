@@ -11,6 +11,7 @@ package com.tierno.repasoinformes;
 public class RepasoInformes {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        Principal p = new Principal();
+        p.setVisible(true);
     }
 }

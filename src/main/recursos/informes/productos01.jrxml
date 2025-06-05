@@ -1,0 +1,74 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="productos01" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0a83ee68-0ba6-4c70-abd7-4be76535daca">
+	<property name="com.jaspersoft.studio.data.sql.tables" value="IlBST0RVQ1RPUyIgLDE1LDE1LDM2YTNlN2Y5LTBiMmEtNDdkZS04YjgzLTg5ZjEzOTc4OGYxMzsi&#xa;Q0FURUdPUklBUyIgLDE1NSwxMDYsNmFiYTM1OGEtZjI3Mi00M2UxLTgyZWMtYTMwYjY0NzFkNmEz&#xa;Ow=="/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Conexion01.jrdax"/>
+	<parameter name="C_CATEGORIA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<query language="SQL"><![CDATA[SELECT p."NOMBRE",
+	p."PRECIOUNI",
+	p."UNIDEXIST",
+	p."UNIDAVISO",
+	c."NOMBRE" AS categoria
+FROM "PRODUCTOS" p,
+	"CATEGORIAS" c
+WHERE 
+	 p."CODCATEG" = c."CODIGO"
+AND ( $P{C_CATEGORIA}  IS NULL OR p.codcateg =   $P{C_CATEGORIA} )
+ORDER BY p.nombre]]></query>
+	<field name="NOMBRE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMBRE"/>
+		<property name="com.jaspersoft.studio.field.label" value="NOMBRE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCTOS"/>
+	</field>
+	<field name="PRECIOUNI" class="java.lang.Double">
+		<property name="com.jaspersoft.studio.field.name" value="PRECIOUNI"/>
+		<property name="com.jaspersoft.studio.field.label" value="PRECIOUNI"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCTOS"/>
+	</field>
+	<field name="UNIDEXIST" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="UNIDEXIST"/>
+		<property name="com.jaspersoft.studio.field.label" value="UNIDEXIST"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCTOS"/>
+	</field>
+	<field name="UNIDAVISO" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="UNIDAVISO"/>
+		<property name="com.jaspersoft.studio.field.label" value="UNIDAVISO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCTOS"/>
+	</field>
+	<field name="CATEGORIA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMBRE"/>
+		<property name="com.jaspersoft.studio.field.label" value="CATEGORIA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CATEGORIAS"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch"/>
+	<pageHeader height="35" splitType="Stretch"/>
+	<columnHeader height="23" splitType="Stretch">
+		<element kind="staticText" uuid="e4e41181-54e5-42a2-a742-a28c16101a6f" x="0" y="0" width="180" height="20" fontSize="14.0" bold="true">
+			<text><![CDATA[PRODUCTO]]></text>
+		</element>
+		<element kind="staticText" uuid="84cfe84a-17cc-4e86-ab1a-ca66889c9fc0" x="200" y="0" width="110" height="20" fontSize="14.0" bold="true">
+			<text><![CDATA[CATEGORÍA]]></text>
+		</element>
+		<element kind="staticText" uuid="e322a322-bfc9-47bd-9e01-d2c0da458832" x="330" y="0" width="50" height="20" fontSize="14.0" bold="true">
+			<text><![CDATA[STOCK]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<element kind="textField" uuid="eb537f93-a291-4a5d-b5c1-50946b5a67fe" x="0" y="0" width="180" height="20" fontSize="12.0" vTextAlign="Middle">
+				<expression><![CDATA[$F{NOMBRE}]]></expression>
+			</element>
+			<element kind="textField" uuid="5fbec2e9-7378-4e7f-8502-0e15bc83b0c7" x="200" y="0" width="110" height="20" fontSize="12.0" vTextAlign="Middle">
+				<expression><![CDATA[$F{CATEGORIA}]]></expression>
+			</element>
+			<element kind="textField" uuid="2632ec14-77c0-4d87-8612-c098abaf6dc1" x="330" y="0" width="40" height="20" fontSize="12.0" vTextAlign="Middle">
+				<expression><![CDATA[$F{UNIDEXIST}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

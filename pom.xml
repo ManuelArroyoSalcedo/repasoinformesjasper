@@ -7,7 +7,7 @@
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <maven.compiler.release>23</maven.compiler.release>
+        <maven.compiler.release>22</maven.compiler.release>
         <exec.mainClass>com.tierno.repasoinformes.RepasoInformes</exec.mainClass>
     </properties>
     <dependencies>
@@ -17,22 +17,23 @@
             <artifactId>hsqldb</artifactId>
             <version>2.7.4</version>
         </dependency>
+        
         <!-- JasperReports Core -->
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports</artifactId>
-            <version>7.0.1</version>
+            <version>7.0.3</version>
         </dependency>
 
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-functions</artifactId>
-            <version>7.0.1</version>
+            <version>7.0.3</version>
         </dependency>
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-pdf</artifactId>
-            <version>7.0.1</version>
+            <version>7.0.3</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/net.sf.jasperreports/jasperreports-excel-poi -->
         <dependency>
@@ -45,14 +46,14 @@
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-fonts</artifactId>
-            <version>7.0.1</version>
+            <version>7.0.3</version>
         </dependency>
 
         <!-- JasperReports Java Swing Viewer (opcional, para mostrar informes con Swing) -->
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-javaflow</artifactId>
-            <version>7.0.1</version>
+            <version>7.0.3</version>
         </dependency>
 
         <!-- Apache Commons Logging (dependencia de Jasper) -->

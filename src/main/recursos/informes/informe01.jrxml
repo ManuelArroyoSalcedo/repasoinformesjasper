@@ -1,0 +1,87 @@
+<!-- Created with Jaspersoft Studio version 7.0.3.final using JasperReports Library version 7.0.3-41034ca841d452f3305ba55b9042260aaa1ab5dd  -->
+<jasperReport name="informe01" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a9443c00-8794-4503-9ff5-daadb8d6cac3">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="DataAdapter.jrdax"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value="IkNBVEVHT1JJQVMiICwxNzAsMzcsMWMxZjVkYmYtOGNhMi00YmViLWE0MzMtZWVjZjc3NzQ5MDc1&#xa;OyJQUk9EVUNUT1MiICwzMCwzMCxmMDg3ZjBiZC1mODYzLTQ5N2YtYTRiMS0xZWE1Y2FkN2U1NjY7&#xa;IkZBQlJJQ0FOVEVTIiAsMTcwLDE3OSw1M2VjNGM4NS0wOTkzLTRiMWMtYjdhYy1iNDFmMjY3N2Fi&#xa;MWE7IlBBSVNFUyIgLDMxMCwyMTgsM2FhZjU2ZjEtMGIwMi00ODBhLThmNTAtMmU3MmI3YWU2MWI0&#xa;Ow=="/>
+	<parameter name="CodCateg" class="java.lang.Integer"/>
+	<parameter name="CodFab" class="java.lang.Integer"/>
+	<parameter name="CodPais" class="java.lang.Integer"/>
+	<query language="sql"><![CDATA[SELECT p."NOMBRE" AS producto,
+	c."NOMBRE" AS categoria,
+	f."NOMBRE" AS fabricante,
+	pa."NOMBRE" AS pais_fabricante
+FROM "PRODUCTOS" p
+	JOIN "CATEGORIAS" c ON 
+	 p."CODCATEG" = c."CODIGO" 
+	JOIN "FABRICANTES" f ON 
+	 p."CODFAB" = f."CODIGO" 
+	JOIN "PAISES" pa ON 
+	 f."CODPAIS" = pa."CODIGO"
+	 WHERE ( $P{CodCateg} IS NULL OR p.codcateg = $P{CodCateg} ) 
+	 AND ( $P{CodFab}  IS NULL OR p.codfab =  $P{CodFab} ) 
+	 AND ( $P{CodPais} IS NULL OR f.codpais = $P{CodPais} )  
+	 ORDER BY p.nombre]]></query>
+	<field name="PRODUCTO" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMBRE"/>
+		<property name="com.jaspersoft.studio.field.label" value="PRODUCTO"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PRODUCTOS"/>
+	</field>
+	<field name="CATEGORIA" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMBRE"/>
+		<property name="com.jaspersoft.studio.field.label" value="CATEGORIA"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="CATEGORIAS"/>
+	</field>
+	<field name="FABRICANTE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMBRE"/>
+		<property name="com.jaspersoft.studio.field.label" value="FABRICANTE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="FABRICANTES"/>
+	</field>
+	<field name="PAIS_FABRICANTE" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="NOMBRE"/>
+		<property name="com.jaspersoft.studio.field.label" value="PAIS_FABRICANTE"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="PAISES"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="47" splitType="Stretch">
+		<element kind="staticText" uuid="f08e06bc-f3ad-4ef9-9eb0-385ff2c59db3" x="0" y="0" width="420" height="40" fontSize="29.0">
+			<text><![CDATA[INFORME DE PRODUCTOS 01]]></text>
+		</element>
+	</title>
+	<pageHeader height="27" splitType="Stretch">
+		<element kind="textField" uuid="3e1ddca1-1713-45dd-92a9-2575984c58fb" x="380" y="0" width="175" height="20" fontSize="14.0" pattern="d - MMM - yyyy" vTextAlign="Bottom">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="25" splitType="Stretch">
+		<element kind="staticText" uuid="6d130c02-45db-478d-8454-67d1d7df5e2e" x="0" y="0" width="160" height="20" fontSize="12.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[Nombre producto]]></text>
+		</element>
+		<element kind="staticText" uuid="192ded6a-471a-41a9-b33c-963be39b80e5" x="170" y="0" width="120" height="20" fontSize="12.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[Categoría]]></text>
+		</element>
+		<element kind="staticText" uuid="7042bdf2-1bed-4298-8f51-ddbf42f78814" x="300" y="0" width="150" height="20" fontSize="12.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[Fabricante]]></text>
+		</element>
+		<element kind="staticText" uuid="15a6b8b8-be69-431f-a43f-188351ed070a" x="460" y="0" width="90" height="20" fontSize="12.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[País]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="28" splitType="Stretch">
+			<element kind="textField" uuid="3ab50031-afba-4541-8715-a16adad74f0b" x="0" y="0" width="160" height="20" vTextAlign="Middle">
+				<expression><![CDATA[$F{PRODUCTO}]]></expression>
+			</element>
+			<element kind="textField" uuid="23207d5c-6f80-47d7-987c-cd038a5e3118" x="170" y="0" width="120" height="20" vTextAlign="Middle">
+				<expression><![CDATA[$F{CATEGORIA}]]></expression>
+			</element>
+			<element kind="textField" uuid="ebfcaed0-b905-419f-a749-7367d93ae4eb" x="300" y="0" width="150" height="20" vTextAlign="Middle">
+				<expression><![CDATA[$F{FABRICANTE}]]></expression>
+			</element>
+			<element kind="textField" uuid="2ae47290-d0a5-4d2d-8d85-1896527009dd" x="460" y="0" width="90" height="20" vTextAlign="Middle">
+				<expression><![CDATA[$F{PAIS_FABRICANTE}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
